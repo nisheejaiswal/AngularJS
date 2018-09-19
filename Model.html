@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="myApp" ng-controller="myCtrl">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  </head>
+  <body>
+
+    <!-- The ng-model Directive -->
+    <div>
+      Name: <input ng-model="name">
+    </div>
+
+    <script>
+      var app=angular.module('myApp', []);
+      app.controller('myCtrl', function($scope){
+        $scope.name = "John Doe";
+      });
+    </script>
+
+    <!-- Two-Way Binding -->
+    <div>
+      Name: <input ng-model="name">
+      <h1>You entered: {{name}}</h1>
+    </div>
+
+    <!-- Validate User Input -->
+    <form ng-app="" name="myForm">
+      Email:
+      <input type="email" name="myAddress" ng-model="text">
+      <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+  </form>
+
+  <!-- Application SStatus -->
+  <form ng-app="" name="myFormss" ng-init="myText = 'post@myweb.com'">
+    Email:
+    <input type="emails" name="myAddresss" ng-model="myText" required>
+    <h1>Status</h1>
+    {{myFormss.myAddresss.$valid}}
+    {{myFormss.myAddresss.$dirty}}
+    {{myFormss.myAddresss.$touched}}
+</form>
+
+<!-- CSS Classes -->
+<style>
+input.ng-invalid {
+    background-color: lightblue;
+}
+</style>
+<form name="myForms">
+    Enter your name:
+    <input name="myNames" ng-model="myTexts" required>
+</form>
+  </body>
+</html>
